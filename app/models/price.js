@@ -1,10 +1,8 @@
-var PriceSchema, Prices, Schema, mongoose;
+var PriceSchema, Prices, mongoose;
 
 mongoose = require('mongoose');
 
-Schema = mongoose.Schema;
-
-PriceSchema = new Schema({
+PriceSchema = new mongoose.Schema({
   symbol: {
     type: String,
     trim: true

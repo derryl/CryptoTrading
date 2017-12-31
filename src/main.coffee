@@ -1,23 +1,11 @@
 Config = require '../config'
 log = console.log.bind console
 
-PriceCollector = (app) ->
+PriceCollector = require './controllers/priceCollector'
 
-   WhaleClub = require('whaleclub')
-   API_KEY = Config.WhaleClub.demoKey
+class Main
 
-   @WC = new WhaleClub(API_KEY)
+   constructor: (app) ->
+      @PriceCollector = new PriceCollector(app)
 
-   @collectData = =>
-      # console.log 'collecting data', Config.WhaleClub.priceInterval
-      collector = setInterval @getPrice, Config.WhaleClub.priceInterval
-
-   @getPrice = (sym) =>
-      if not sym then sym = ['BTC-USD']
-      @WC.price(sym).then console.log
-
-   log Config
-   @collectData()
-   @
-
-module.exports = PriceCollector
+module.exports = Main

@@ -1,11 +1,5 @@
 'use strict';
 
-/*
- * nodejs-express-mongoose-demo
- * Copyright(c) 2013 Madhusudhan Srinivasa <madhums8@gmail.com>
- * MIT Licensed
- */
-
 /**
  * Module dependencies
  */
@@ -22,6 +16,7 @@ const models = join(__dirname, 'app/models');
 const port = process.env.PORT || 3000;
 const app = express();
 
+// The main engine that runs the application
 const engine = require('./app/main')(config)
 
 /**

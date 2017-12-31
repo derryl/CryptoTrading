@@ -1,0 +1,13 @@
+{
+  "verbose": false,
+  "restartable": "rs",
+  "watch": [
+      "app/*",
+      "server.js",
+      "config.js",
+      ".env"
+  ],
+  "ignore": [
+    "src/*"
+  ]
+}

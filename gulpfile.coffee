@@ -6,8 +6,11 @@ sourcemaps = require 'gulp-sourcemaps'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
 
+src =
+   coffee: 'src/**/*.coffee'
+
 gulp.task 'coffee', ->
-   gulp.src "src/**/*.coffee"
+   gulp.src "#{src.coffee}"
       .pipe plumber({ errorHandler: notify.onError "Error: <%= error.message %>" })
       .pipe sourcemaps.init()
       .pipe coffee { bare: true }
@@ -18,6 +21,6 @@ gulp.task 'build', [
 ]
 
 gulp.task 'watch', ->
-   gulp.watch 'src/*.coffee', ['coffee']
+   gulp.watch "#{src.coffee}", ['coffee']
 
 gulp.task 'default', [ 'build', 'watch' ]
